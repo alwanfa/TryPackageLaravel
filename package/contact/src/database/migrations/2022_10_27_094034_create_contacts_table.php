@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->text('name');
             $table->text('message');
+            $table->text('subject');
             $table->text('email');
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('created_at')->nullable();

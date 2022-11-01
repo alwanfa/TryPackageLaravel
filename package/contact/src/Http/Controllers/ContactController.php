@@ -16,7 +16,8 @@ class ContactController extends Controller
     }
     public function store(Request $req)
     {
-        Contact::create($req->all());
+        $data = ['name'=>$req->name,'email'=>$req->email,'subject'=>$req->subject,'message'=>$req->message];
+        Contact::create($data);
         Mail::to("alwanfauzulazhim15@gmail.com")->send(new MailContact($req->message, $req->name, $req->email));
         return redirect('contact');
     }
