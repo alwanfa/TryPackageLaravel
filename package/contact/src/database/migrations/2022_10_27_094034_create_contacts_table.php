@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('name');
             $table->text('message');
             $table->text('email');
+            $table->timestamp('updated_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
     }
 
