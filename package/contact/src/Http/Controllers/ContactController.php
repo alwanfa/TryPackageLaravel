@@ -18,7 +18,7 @@ class ContactController extends Controller
     {
         $data = ['name'=>$req->name,'email'=>$req->email,'subject'=>$req->subject,'message'=>$req->message];
         Contact::create($data);
-        Mail::to("alwanfauzulazhim15@gmail.com")->send(new MailContact($req->message, $req->name, $req->email));
+        Mail::to(config('contact.send_email_to'))->send(new MailContact($req->message, $req->name, $req->email));
         return redirect('contact');
     }
     
